@@ -16,16 +16,16 @@ app.post("/generate-blog", async (req, res) => {
   try {
     // Initialize the Google Generative AI client
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const { message } = req.body;
+    const message = req.body;
 
-    if (!title) {
-      return res.status(400).json({ message: "Title is required" });
+    if (!message) {
+      return res.status(400).json({ message: "message is required" });
     }
 
     // Specify the model
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `${title}`;
+    const prompt = `${message}`;
     console.log("Prompt:", prompt);
 
     // Generate content using the prompt
