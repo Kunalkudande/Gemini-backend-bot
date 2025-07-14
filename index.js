@@ -16,7 +16,7 @@ app.post("/generate-blog", async (req, res) => {
   try {
     // Initialize the Google Generative AI client
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const message = req.body;
+    const { message } = req.body;
 
     if (!message) {
       return res.status(400).json({ message: "message is required" });
@@ -37,7 +37,7 @@ app.post("/generate-blog", async (req, res) => {
 
     // Send the generated text as a response
     res.status(200).json({
-      message: generatedText.choices[0].message.content
+      message: generatedText
     });
   } catch (error) {
     console.error("Error:", error);
