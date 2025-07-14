@@ -22,7 +22,7 @@ app.post("/generate-blog", async (req, res) => {
     // Specify the model
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = `Generate a blog on: ${title}`;
+    const prompt = `${title}`;
     console.log("Prompt:", prompt);
 
     // Generate content using the prompt
