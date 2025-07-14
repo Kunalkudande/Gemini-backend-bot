@@ -1,10 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 dotenv.config(); // Load environment variables
 
 const app = express();
+app.use(cors()); // Allow all origins (or restrict below)
+
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 app.use(express.json());
