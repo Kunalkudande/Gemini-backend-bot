@@ -16,7 +16,7 @@ app.post("/generate-blog", async (req, res) => {
   try {
     // Initialize the Google Generative AI client
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const title = req.body.message;
+    const { message } = req.body;
 
     if (!title) {
       return res.status(400).json({ message: "Title is required" });
