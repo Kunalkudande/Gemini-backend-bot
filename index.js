@@ -37,8 +37,7 @@ app.post("/generate-blog", async (req, res) => {
 
     // Send the generated text as a response
     res.status(200).json({
-      message: "Success",
-      generatedText: generatedText,
+      message: generatedText.choices[0].message.content
     });
   } catch (error) {
     console.error("Error:", error);
